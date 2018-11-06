@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	pb "github.com/mlvhub/learning-go/microservices-tutorial/user-service/proto/user"
+	pb "github.com/mlvhub/shippy-user-service/proto/auth"
 	"golang.org/x/crypto/bcrypt"
 	"golang.org/x/net/context"
 )

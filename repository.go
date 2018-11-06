@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/jinzhu/gorm"
-	pb "github.com/mlvhub/learning-go/microservices-tutorial/user-service/proto/user"
+	pb "github.com/mlvhub/shippy-user-service/proto/auth"
 )
 
 type Repository interface {
