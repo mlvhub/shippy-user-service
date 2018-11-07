@@ -2,8 +2,7 @@ build:
 	protoc -I/usr/local/include -I. \
 		--go_out=plugins=micro:. \
 		proto/auth/auth.proto
-	docker build -t eu.gcr.io/shippy-freight/user:latest .
-	docker push eu.gcr.io/shippy-freight/user:latest
+	docker build -t shippy-user-service .
 
 run:
 	docker run --net="host" \

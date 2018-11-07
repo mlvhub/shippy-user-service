@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"log"
 
 	pb "github.com/mlvhub/shippy-user-service/proto/auth"
@@ -65,5 +66,23 @@ func (srv *service) Create(ctx context.Context, req *pb.User, res *pb.Response) 
 		return err
 	}
 	res.User = req
+	return nil
+}
+
+func (srv *service) ValidateToken(ctx context.Context, req *pb.Token, res *pb.Token) error {
+
+	// Decode token
+	claims, err := srv.tokenService.Decode(req.Token)
+
+	if err != nil {
+		return err
+	}
+
+	if claims.User.Id == "" {
+		return errors.New("invalid user")
+	}
+
+	res.Valid = true
+
 	return nil
 }
